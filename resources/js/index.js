@@ -29,8 +29,21 @@ try {
   //       2. show the gameWrapper
   //       3. call the game getWordHolderText and set it to the wordHolderText
   //       4. call the game getGuessessText and set it to the guessesText
-  difficultySelectForm.addEventListener(`submit`, function (event) {});
+  difficultySelectForm.addEventListener(`submit`, function (event) {
 
+  event.preventDefault();
+
+hangman.start(difficultySelect.value, funciton () {
+
+  startWrapper.classList.add('hidden');
+
+  gameWrapper.classList.remove('hidden');
+
+  wordHolderText.innerHTML = hangman.getWordHolderText();
+
+  guessesText.innterHTML = hangman.getGuessesText();
+});
+});
   // add a submit Event Listener to the guessForm
   //    get the guess input
   //    call the game guess() method
@@ -44,12 +57,36 @@ try {
   //      2. disable the guessButton
   //      3. show the resetGame button
   // if the game is won or lost, show an alert.
-  guessForm.addEventListener(`submit`, function (e) {});
+  guessForm.addEventListener(`submit`, function (e) {
+
+    e.preventDefault();
+
+    hangman.guess(guessInput.value);
+
+    wordHolderText.innerHTML = hangman.getWordHolderText();
+
+    guessesText.innerHTML = hangman.getGuessesText();
+
+    geuessInput.value = "";
+
+    if (hangman.isOver === true) {
+      guessForm.classList.add("hidden");
+      resetGame.classList.remove("hidden");
+
+      if (hangman.didWin === true) {
+        alert("You Have Won The Game!");
+      } else {
+        alert("You Have Won The Game!");
+      }
+      }
+    });
 
   // add a click Event Listener to the resetGame button
   //    show the startWrapper
   //    hide the gameWrapper
-  resetGame.addEventListener(`click`, function (e) {});
+  resetGame.addEventListener(`click`, function (e) {
+    location.reload();
+  });
 } catch (error) {
   console.error(error);
   alert(error);
