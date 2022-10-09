@@ -33,7 +33,7 @@ try {
 
   event.preventDefault();
 
-hangman.start(difficultySelect.value, funciton () {
+ hangman.start(difficultySelect.value, funciton () {
 
   startWrapper.classList.add('hidden');
 
