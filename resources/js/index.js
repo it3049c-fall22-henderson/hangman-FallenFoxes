@@ -21,6 +21,7 @@ let canvas = document.getElementById(`hangmanCanvas`);
 // The following Try-Catch Block will catch the errors thrown
 try {
   // Instantiate a game Object using the Hangman class.
+  const hangman = new Hangman(canvas);
 
   // add a submit Event Listener for the to the difficultySelectionForm
   //    get the difficulty input
@@ -29,8 +30,18 @@ try {
   //       2. show the gameWrapper
   //       3. call the game getWordHolderText and set it to the wordHolderText
   //       4. call the game getGuessessText and set it to the guessesText
-  difficultySelectForm.addEventListener(`submit`, function (event) {});
+  difficultySelectForm.addEventListener(`submit`, function (event) {
 
+  event.preventDefault();
+
+const difficulty = difficultySelect.value;
+ hangman.start(difficulty, function() {
+  startWrapper.classList.add('hidden');
+  gameWrapper.classList.remove('hidden');
+  wordHolderText.innerHTML = hangman.getWordHolderText();
+  guessesText.innterHTML = hangman.getGuessesText();
+});
+});
   // add a submit Event Listener to the guessForm
   //    get the guess input
   //    call the game guess() method
@@ -44,12 +55,35 @@ try {
   //      2. disable the guessButton
   //      3. show the resetGame button
   // if the game is won or lost, show an alert.
-  guessForm.addEventListener(`submit`, function (e) {});
+  guessForm.addEventListener(`submit`, function (e) {
+    e.preventDefault();
+    hangman.guess(guessInput.value);
+    wordHolderText.innerHTML = hangman.getWordHolderText();
+    guessesText.innerHTML = hangman.getGuessesText();
+    guessInput.value = "";
+
+    if (hangman.isOver === true) {
+      if (hangman.didWin === true) {
+        alert("You Have Won The Game!");
+      } else {
+        alert("You Have Won The Game!");
+      }
+      guessForm.classList.add('disabled');
+      guessInput.classList.add('disabled');
+      resetGame.classList.remove('hidden');
+      }
+    });
 
   // add a click Event Listener to the resetGame button
   //    show the startWrapper
   //    hide the gameWrapper
-  resetGame.addEventListener(`click`, function (e) {});
+  resetGame.addEventListener(`click`, function (e) {
+    startWrapper.classList.remove('hidden');
+    gameWrapper.classList.add('hidden');
+    location.reload();
+    difficultySelect.value[0];
+  });
+  
 } catch (error) {
   console.error(error);
   alert(error);

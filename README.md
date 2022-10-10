@@ -1,6 +1,6 @@
 Hangman
 =====================
-[![Assignment Checks](https://github.com/IT3049C/Hangman/actions/workflows/classroom.yml/badge.svg)](https://github.com/IT3049C/Hangman/actions/workflows/classroom.yml)
+[![Assignment Checks](https://github.com/it3049c-fall22-henderson/hangman-FallenFoxes/actions/workflows/classroom.yml/badge.svg)](https://github.com/it3049c-fall22-henderson/hangman-FallenFoxes/actions/workflows/classroom.yml)
 
 Instructions to this assignment can be found [here](#).
 
@@ -14,6 +14,13 @@ Instructions to this assignment can be found [here](#).
 
 how many points out of 20 do you deserve on this assignment:
 
+18 out of 20
+all tests are passing. Was working but now its not. Cannot seem to find out why.
+
 ## Self-Reflection:
 
+I was able to learn how to go about creating new shapes and such within the API and its functionality. 
+
 ### How long it took me to finish this?
+
+Approximately 2-3 hours. 
