@@ -36,9 +36,9 @@ class Hangman {
    * @param {string} difficulty a difficulty string to be passed to the getRandomWord Function
    * @param {function} next callback function to be called after a word is reveived from the API.
    */
-  async start(difficulty, next) {
+  start(difficulty, next) {
     // get word and set it to the class's this.word
-  const wordJSON = await this.getRandomWord(difficulty);
+  this.word = this.getRandomWord(difficulty);
     // clear canvas
     this.clearCanvas();
     // draw base
@@ -49,6 +49,8 @@ class Hangman {
     this.isOver = false;
     // reset this.didWin to false
     this.didWin = false;
+
+    next();
   }
 
   /**
@@ -70,7 +72,7 @@ class Hangman {
       throw new Error ("Nothing Was Provided.");
   }
 
-  if (/^[a-zA-Z]+$/.test(letter) === false) {
+  if (!/^[a-zA-Z]*$/.test(letter) === false) {
     alert ("Provide Letters Only");
     throw new Error ("Provide Letters Only.");
   }
