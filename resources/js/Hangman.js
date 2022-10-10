@@ -7,11 +7,11 @@ class Hangman {
     this.canvas = _canvas;
     this.ctx = this.canvas.getContext(`2d`);
 
+  this.word = "";  
+   this.isOver = false;
+    this.didWin = false; 
     this.guesses = [];
-    this.word = "";
-    this.isOver = false;
-    this.didWin = false;
-    this.wrongGuesses = 0;
+    this.Guesses = 0;
   }
 
   /**
