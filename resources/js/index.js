@@ -36,13 +36,9 @@ try {
 
 const difficulty = difficultySelect.value;
  hangman.start(difficulty, function() {
-
   startWrapper.classList.add('hidden');
-
   gameWrapper.classList.remove('hidden');
-
   wordHolderText.innerHTML = hangman.getWordHolderText();
-
   guessesText.innterHTML = hangman.getGuessesText();
 });
 });
@@ -60,26 +56,21 @@ const difficulty = difficultySelect.value;
   //      3. show the resetGame button
   // if the game is won or lost, show an alert.
   guessForm.addEventListener(`submit`, function (e) {
-
     e.preventDefault();
-
     hangman.guess(guessInput.value);
-
     wordHolderText.innerHTML = hangman.getWordHolderText();
-
     guessesText.innerHTML = hangman.getGuessesText();
-
-    geuessInput.value = "";
+    guessInput.value = "";
 
     if (hangman.isOver === true) {
-      guessForm.classList.add("hidden");
-      resetGame.classList.remove("hidden");
-
       if (hangman.didWin === true) {
         alert("You Have Won The Game!");
       } else {
         alert("You Have Won The Game!");
       }
+      guessForm.classList.add('disabled');
+      guessInput.classList.add('disabled');
+      resetGame.classList.remove('hidden');
       }
     });
 
@@ -87,8 +78,12 @@ const difficulty = difficultySelect.value;
   //    show the startWrapper
   //    hide the gameWrapper
   resetGame.addEventListener(`click`, function (e) {
+    startWrapper.classList.remove('hidden');
+    gameWrapper.classList.add('hidden');
     location.reload();
+    difficultySelect.value[0];
   });
+  
 } catch (error) {
   console.error(error);
   alert(error);
