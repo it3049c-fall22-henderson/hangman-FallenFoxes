@@ -15,6 +15,7 @@ Instructions to this assignment can be found [here](#).
 how many points out of 20 do you deserve on this assignment:
 
 18 out of 20
+all tests are passing. Was working but now its not. Cannot seem to find out why.
 
 ## Self-Reflection:
 
