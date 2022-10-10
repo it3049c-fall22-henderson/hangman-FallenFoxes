@@ -72,8 +72,8 @@ class Hangman {
       throw new Error ("Nothing Was Provided.");
   }
 
-  if (!/^[a-zA-Z]*$/.test(letter) === false) {
-    alert ("Provide Letters Only");
+  if (/^[a-zA-Z]*$/.test(letter) === false) {
+    alert ("Provide Letters Only.");
     throw new Error ("Provide Letters Only.");
   }
 
